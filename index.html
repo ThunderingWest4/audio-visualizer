@@ -1,0 +1,67 @@
+<style>
+
+    .h1 {
+        user-select: none; 
+        color: white; 
+        font-family:'Calibri', sans-serif; 
+        font-weight:lighter; 
+        font-size:4.5vw; 
+        position:relative;
+        margin: 0 auto;
+        margin-top: 1vw;
+    }
+    
+    .h2 {
+        user-select: none; 
+        color: white; 
+        font-family:'Calibri', sans-serif; 
+        font-weight: lighter; 
+        font-size:2.5vw; 
+        position:inherit; 
+        margin: 0 auto;
+        /* top:-40px;  */
+        /* padding-left: 0.1vw; */
+        margin-top:0vw;
+        margin-left:0.25vw;
+    }
+    .audio {
+        position:fixed; 
+        left:65vw; 
+        top:3vw;
+        margin:0 auto; 
+        /* top:10px;  */
+        /* justify-self: right; */
+        /* clear:right; */
+        /* scale: 5; */
+        transform:scale(1.25);
+    }
+    .input {
+        position:fixed; 
+        top:7vw; 
+        left:68vw; 
+        margin:0 auto; 
+        color:white;
+        /* justify-self: right; */
+        width:10vw;
+        /* scale:inherit; */
+        transform:scale(1.25);
+    }
+
+</style>
+
+<html>
+  <head>
+    <!-- <audio id="source" src="music.mp3"></audio> -->
+    <!-- <audio id="source" src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"></audio> -->
+    <audio class="audio" id="audio" controls></audio>
+    <input class="input" type="file" id="thefile" accept="audio/*" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.3.0/lib/p5.js"></script>
+    <script src="sketch.js"></script>
+  </head>
+  <body style="background-color: black;">
+    <main>
+        <h1 class="h1" id="songtitle">Song Title</h1>
+        <h2 class="h2" id="songauthor">Song Author</h2>
+    </main>
+  </body>
+</html>
