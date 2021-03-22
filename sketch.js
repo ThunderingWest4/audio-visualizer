@@ -14,6 +14,9 @@ let rectWidth = 4;
 let connected = false; // if already connected to audio node
 let colortype = "";
 // either gonna be time generated or based on bar volume
+// update: why not both? gonna add interchangable settings
+
+let loopsong = false;
 
 function setup() {
 
@@ -101,5 +104,12 @@ function draw() {
         }
         // colors.pop();
         // colors.unshift([(110*time/(data.length)), 80, 110*(data.length-time)/(data.length)]);
+        if(loopsong && (audio.currentTime === audio.duration)) {
+            audio.play();
+        }
     }
+}
+
+function checkboxstate(checkbox) {
+    loopsong = checkbox.checked;
 }
