@@ -10,7 +10,9 @@ Todo:
 - switch between dark and light background
 - make the control thing actually work and not bad
 - bouncey bars in a circle shape
-- song loop?
 - play from youtube/spotify
+
+Completed: 
+- single song loop
 
 idk how much i'll actually end up adding but those are my goals
