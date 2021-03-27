@@ -10,11 +10,13 @@ let coeff = 1;
 let colors = [];
 
 let rectWidth = 4;
+let skip = 4;
 
 let connected = false; // if already connected to audio node
-let colortype = "";
+let colortype = "volume";
 // either gonna be time generated or based on bar volume
 // update: why not both? gonna add interchangable settings
+// volume based by default
 
 let loopsong = false;
 
@@ -23,7 +25,7 @@ function setup() {
     // setup code
     noStroke();
     // createCanvas(width, height);
-    createCanvas(window.innerWidth-20, window.innerHeight-250);
+    createCanvas(window.innerWidth-30, window.innerHeight-360);
 
 }
 
@@ -78,18 +80,35 @@ file.onchange = function() {
 function draw() {
     clear();
     // drawing code
+    let c; 
     if(analyser !== undefined) {
         analyser.getByteFrequencyData(data);
-        for (var i = 0; i < data.length; i+=4) {
+        // if(colortype==="volume") {
+        //     colors = [[0, 0, 0]];
+        // }
+        for (var i = 0; i < data.length; i += skip) {
             
-            // let t_c = colors[i]; // take front item, rotation based
+            let t_c;
 
-            // volume of bar based
-            let t_c = [
-                data[i]-15, // r
-                260 - data[i], // g
-                data[i] / 4 // b
-            ];
+            if(colortype === "time") {
+                // take front item, rotation based
+                t_c = colors[i];
+            } else {
+                // means that color is volume based
+                // might add more variation later? idk
+
+                // volume of bar based
+                t_c = [
+                    data[i]-15, // r
+                    240 - data[i], // g
+                    data[i] / 4 // b
+                ];
+                c = t_c;
+                // colors.push(t_c);
+                // for(var j=0; j < skip; j++) {
+                //     colors.push([0, 0, 0]);
+                // }
+            }           
 
             fill(color(t_c));
             rect(rectWidth*(i+1), window.innerHeight-180, rectWidth, -data[i]*2);
@@ -102,8 +121,19 @@ function draw() {
         } else if (time <= 0) {
             coeff = 2;
         }
-        // colors.pop();
-        // colors.unshift([(110*time/(data.length)), 80, 110*(data.length-time)/(data.length)]);
+        colors.pop();
+        // going to keep adding to colors list/array thing for more fluid transition between
+        // bar coloring types
+        if(colortype === "time") {
+            colors.unshift([
+                            (110*time/(data.length)), 
+                            30, 
+                            90*(data.length-time)/(data.length)
+                        ]);
+        } else {
+            // volume based
+            colors.unshift(c);
+        }
         if(loopsong && (audio.currentTime === audio.duration)) {
             audio.play();
         }
@@ -112,4 +142,12 @@ function draw() {
 
 function checkboxstate(checkbox) {
     loopsong = checkbox.checked;
+}
+
+function timeColor() {
+    colortype = "time";
+}
+
+function volColor() {
+    colortype = "volume";
 }
