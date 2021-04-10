@@ -1,158 +1,45 @@
 <html>
   <head>
-    <style>
-
-    .h1 {
-        user-select: none; 
-        color: white; 
-        font-family:'Calibri', sans-serif; 
-        font-weight:lighter; 
-        font-size:4.5vw; 
-        position:relative;
-        margin: 0 auto;
-        margin-top: 1vw;
-    }
     
-    .h2 {
-        user-select: none; 
-        color: white; 
-        font-family:'Calibri', sans-serif; 
-        font-weight: lighter; 
-        font-size:2.5vw; 
-        position:inherit; 
-        margin: 0 auto;
-        /* top:-40px;  */
-        /* padding-left: 0.1vw; */
-        margin-top:0vw;
-        margin-left:0.25vw;
-    }
-    .h3 {
-      color: white;
-      margin: 0 auto;
-      font-family: 'Calibri', sans-serif;
-      font-weight: lighter;
-      /* margin-left: 70vw; */
-      font-size: 1.5vw;
-    }
-    .audio {
-        position:fixed; 
-        left:65vw; 
-        top:3vw;
-        margin:0 auto; 
-        /* top:10px;  */
-        /* justify-self: right; */
-        /* clear:right; */
-        /* scale: 5; */
-        transform:scale(1.25);
-    }
-    .input {
-        position:fixed; 
-        top:7vw; 
-        left:68vw; 
-        margin:0 auto; 
-        color:white;
-        /* justify-self: right; */
-        width:10vw;
-        /* scale:inherit; */
-        transform:scale(1.25);
-    }
-
-    legend {
-      color: white;
-      user-select: none;
-      margin: 0 auto;
-      font-family: 'Calibri', sans-serif;
-      font-weight: lighter;
-      /* margin-left: 65vw; */
-      margin-bottom: 0.5vw;
-      font-size: 1.5vw;
-    }
-
-    input[type="checkbox" i] {
-      margin: 0 auto;
-      margin-left: 68.3vw;
-      margin-top: 0.1vw;
-    }
-
-    input[type="radio" i] {
-      margin: 0 auto;
-      /* margin-left: 65vw; */
-      margin-top: 0.5vw;
-    }
-
-    #looplabel {
-      user-select: none;
-      position: fixed;
-      left: 70vw;
-      margin-top: -0.2vw;
-      color:white;
-      font-family:'Calibri', sans-serif; 
-      font-weight: lighter;
-      font-size: larger;
-      margin-bottom: 10vw;
-    }
-
-    #vollabel {
-      user-select: none;
-      position: fixed;
-      /* left: 68vw; */
-      margin-top: 0.2vw;
-      margin-left: 1vw;
-      color:white;
-      font-family:'Calibri', sans-serif; 
-      font-weight: lighter;
-      font-size: larger;
-      margin-bottom: 10vw;
-    }
-
-    #timelabel {
-      user-select: none;
-      position: fixed;
-      /* left: 68vw; */
-      margin-top: 0.17vw;
-      margin-left: 1vw;
-      color:white;
-      font-family:'Calibri', sans-serif; 
-      font-weight: lighter;
-      font-size: larger;
-      margin-bottom: 10vw;
-    }
-    #colsettings {
-      margin: 0 auto;
-      margin-top: 1vw;
-      /* width: 10vw; */
-      /* margin-left: 50vw; */
-    }
-    
-
-  </style>
-
+  <link rel="stylesheet" href="style.css">
   <!-- <audio id="source" src="music.mp3"></audio> -->
   <!-- <audio id="source" src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"></audio> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
   </head>
   <body style="background-color: black;">
-    <audio class="audio" id="audio" controls=""></audio>
-    <input class="input" type="file" id="thefile" accept="audio/*">
+    <audio class="audio" id="audio" controls="" hidden="true"></audio>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.3.0/lib/p5.js"></script>
     <script src="sketch.js"></script>
     <main>
+        <!-- Song Title/Song Author -->
         <h1 class="h1" id="songtitle">Song Title</h1>
         <h2 class="h2" id="songauthor">Song Author</h2>
-        <input type="checkbox" id="loop-song" onclick="checkboxstate(this)">
-        <label for="loop-song" id="looplabel">Loop this Song</label>
+        <!-- Options Menu -->
+        <div class="dropdown">
+          <button onclick="dropDropDown()" class="dropbtn">Options</button>
+          <div id="myDropdown" class="dropdown-content">
+              <!-- <fieldset id="colsettings" style="width: 400px;margin-left: 62.5vw;">
+                <legend>
+                Column Coloring Settings</legend>
+                <!-- Default choice - volume based coloring -->
+                <br>
+                <input class="input" type="file" id="thefile" onchange="OnFileChange(this)"accept="audio/*">
+                <br>
+                <br>
+                <input type="checkbox" id="loop-song" onclick="checkboxstate(this)">
+                <label for="loop-song" id="looplabel">Loop this Song</label>
+                <br>
+                <br>
+                <input type="radio" id="vol-audio" name="color-style" onclick="volColor()" checked> <label for="vol-audio" id="vollabel">Volume/Frequency Based Bar Coloring</label>
+                <br>
+                <br>
+                <input type="radio" id="time-audio" name="color-style" onclick="timeColor()"> <label for="time-audio" id="timelabel">Time Based Bar Coloring</label>
+            <!-- </fieldset> -->
+          </div>
+        </div>
+        <!-- Play/Pause/Skip Buttons -->
         
-        <fieldset id="colsettings" style="
-            width: 400px;
-            margin-left: 62.5vw;
-          ">
-          <legend>
-          Column Coloring Settings</legend>
-          <!-- Default choice - volume based coloring -->
-          <input type="radio" id="vol-audio" name="color-style" onclick="volColor()" checked> <label for="vol-audio" id="vollabel">Volume/Frequency Based Bar Coloring</label>
-          <br>
-          <br>
-          <input type="radio" id="time-audio" name="color-style" onclick="timeColor()"> <label for="time-audio" id="timelabel">Time Based Bar Coloring</label>
-        </fieldset>
     </main>
   </body>
 </html>

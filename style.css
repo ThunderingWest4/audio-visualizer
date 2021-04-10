@@ -1,0 +1,178 @@
+.h1 {
+    user-select: none; 
+    color: white; 
+    font-family:'Calibri', sans-serif; 
+    font-weight:lighter; 
+    font-size:4.5vw; 
+    position:relative;
+    margin: 0 auto;
+    margin-top: 1vw;
+}
+
+.h2 {
+    user-select: none; 
+    color: white; 
+    font-family:'Calibri', sans-serif; 
+    font-weight: lighter; 
+    font-size:2.5vw; 
+    position:inherit; 
+    margin: 0 auto;
+    /* top:-40px;  */
+    /* padding-left: 0.1vw; */
+    margin-top:0vw;
+    margin-left:0.25vw;
+}
+.h3 {
+  color: white;
+  margin: 0 auto;
+  font-family: 'Calibri', sans-serif;
+  font-weight: lighter;
+  /* margin-left: 70vw; */
+  font-size: 1.5vw;
+}
+.audio {
+    /* position:fixed;  */
+    /* left:65vw;  */
+    /* top:3vw; */
+    margin:0 auto; 
+    /* top:10px;  */
+    /* justify-self: right; */
+    /* clear:right; */
+    /* scale: 5; */
+    transform:scale(1.5);
+}
+.input {
+    /* position:fixed;  */
+    /* top:7vw;  */
+    /* left:68vw;  */
+    margin:0 auto; 
+    color:white;
+    /* justify-self: right; */
+    /* width:10vw; */
+    /* scale:inherit; */
+    /* transform:scale(1.25); */
+}
+
+input[type="checkbox" i] {
+  margin: 0 auto;
+  /* margin-left: 68.3vw; */
+  margin-top: 0.1vw;
+}
+
+input[type="radio" i] {
+  margin: 0 auto;
+  /* margin-left: 65vw; */
+  margin-top: 0.5vw;
+}
+
+#looplabel {
+  user-select: none;
+  position: fixed;
+  /* left: 70vw; */
+  margin-top: -0.2vw;
+  margin-left: 1vw;
+  color:white;
+  font-family:'Calibri', sans-serif; 
+  font-weight: lighter;
+  font-size: larger;
+  /* margin-bottom: 10vw; */
+}
+
+#vollabel {
+  user-select: none;
+  position: fixed;
+  /* left: 68vw; */
+  margin-top: 0.2vw;
+  margin-left: 1vw;
+  color:white;
+  font-family:'Calibri', sans-serif; 
+  font-weight: lighter;
+  font-size: larger;
+  margin-bottom: 10vw;
+}
+
+#timelabel {
+  user-select: none;
+  position: fixed;
+  /* left: 68vw; */
+  margin-top: 0.17vw;
+  margin-left: 1vw;
+  color:white;
+  font-family:'Calibri', sans-serif; 
+  font-weight: lighter;
+  font-size: larger;
+  margin-bottom: 10vw;
+}
+#colsettings {
+  margin: 0 auto;
+  margin-top: 1vw;
+  /* width: 10vw; */
+  /* margin-left: 50vw; */
+}
+
+/* not using fieldset anymore but keeping here because it looked nice and just in case i do in future */
+/* legend {
+  color: white;
+  user-select: none;
+  margin: 0 auto;
+  font-family: 'Calibri', sans-serif;
+  font-weight: lighter;
+  /* margin-left: 65vw; 
+  margin-bottom: 0.5vw;
+  font-size: 1.5vw;
+} */
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: black;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-left: 70vw;
+    margin-top: -5vw;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus, .dropbtn:enabled {
+    background-color: #1A1A1A;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1A1A1A;
+    min-width: 25vw;
+    min-height: 10vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin: 0 auto;
+    margin-left: 65vw;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content input, label {
+      margin-left: 1vw;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
