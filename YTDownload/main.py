@@ -16,6 +16,7 @@ TODO:
 ✓ connect "Click to Download" to ytdl and make popup when done download
 - progress bar?
 - remove songs from list?
+- create playlist?
 """
 
 songs = {}
